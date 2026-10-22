@@ -1,487 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Green Cup | Cafe Menu</title>
-
-<style>
-:root {
-  --green: #dcebd5;
-  --dark-green: #23452f;
-  --light: #f7faf5;
-  --black: #171b18;
-  --white: #ffffff;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background: var(--light);
-  color: var(--black);
-}
-
-header {
-  background: var(--green);
-  padding: 28px 16px;
-  text-align: center;
-}
-
-header h1 {
-  color: var(--dark-green);
-  font-size: 35px;
-  letter-spacing: 3px;
-}
-
-header p {
-  margin-top: 9px;
-  font-size: 13px;
-  letter-spacing: 2px;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding: 20px 12px;
-}
-
-nav button {
-  padding: 10px 17px;
-  border: 1px solid var(--dark-green);
-  border-radius: 25px;
-  background: white;
-  color: var(--dark-green);
-  cursor: pointer;
-}
-
-nav button.active,
-nav button:hover {
-  background: var(--dark-green);
-  color: white;
-}
-
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 10px 20px 35px;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 27px;
-  margin: 15px 0 25px;
-  color: var(--dark-green);
-}
-
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 22px;
-}
-
-.card {
-  background: var(--white);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px #172b1910;
-  transition: transform .2s;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-}
-
-.card img {
-  width: 100%;
-  height: 175px;
-  object-fit: cover;
-  display: block;
-}
-
-.card-content {
-  padding: 16px;
-}
-
-.card h3 {
-  font-size: 19px;
-  margin-bottom: 8px;
-}
-
-.description {
-  color: #777;
-  font-size: 13px;
-  min-height: 32px;
-  line-height: 1.5;
-}
-
-.price-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 15px;
-}
-
-.price {
-  font-size: 20px;
-  font-weight: bold;
-  color: var(--dark-green);
-}
-
-.add-btn {
-  border: none;
-  border-radius: 8px;
-  padding: 9px 13px;
-  color: white;
-  background: var(--dark-green);
-  cursor: pointer;
-}
-
-.cart {
-  background: var(--green);
-  padding: 22px;
-  margin: 35px 0;
-  border-radius: 14px;
-}
-
-.cart h2 {
-  margin-bottom: 14px;
-  color: var(--dark-green);
-}
-
-.cart-line {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin: 10px 0;
-}
-
-.cart-line button {
-  padding: 3px 8px;
-  cursor: pointer;
-}
-
-.total {
-  border-top: 1px solid #a9bca5;
-  padding-top: 13px;
-  margin-top: 15px;
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.pay-btn {
-  display: block;
-  width: 100%;
-  margin-top: 16px;
-  padding: 13px;
-  border: none;
-  border-radius: 8px;
-  background: var(--dark-green);
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.payment {
-  text-align: center;
-  background: white;
-  border: 2px solid var(--green);
-  border-radius: 18px;
-  padding: 28px 15px;
-  margin: 30px auto;
-  max-width: 440px;
-}
-
-.payment h2 {
-  color: var(--dark-green);
-  margin-bottom: 10px;
-}
-
-.payment img {
-  width: 190px;
-  height: 190px;
-  object-fit: contain;
-  margin: 15px auto;
-  display: block;
-}
-
-.payment p {
-  margin: 8px 0;
-  color: #555;
-  font-size: 14px;
-}
-
-footer {
-  background: var(--dark-green);
-  color: white;
-  text-align: center;
-  padding: 25px 12px;
-  line-height: 1.8;
-}
-
-@media (max-width: 480px) {
-  header h1 { font-size: 27px; }
-  .container { padding: 8px 13px; }
-  .menu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .card img { height: 125px; }
-  .card-content { padding: 11px; }
-  .card h3 { font-size: 15px; }
-  .description { font-size: 12px; }
-  .price { font-size: 16px; }
-  .add-btn { padding: 8px; font-size: 12px; }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piccolo Cafe | Menu</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-  <h1>☘ THE GREEN CUP</h1>
-  <p>COFFEE • BITES • GOOD VIBES</p>
-  <p>Freshly brewed, lovingly served.</p>
-</header>
+    <header class="hero">
+        <nav>
+            <h2 class="logo">piccolo<span>.</span></h2>
+            <p>CAFE & BAKERY</p>
+        </nav>
 
-<nav id="filters">
-  <button class="active" data-category="All">All Menu</button>
-  <button data-category="Coffee">Coffee</button>
-  <button data-category="Drinks">Drinks</button>
-  <button data-category="Snacks">Snacks</button>
-  <button data-category="Food">Food</button>
-</nav>
-
-<main class="container">
-  <h2 class="section-title">Our Delicious Menu</h2>
-
-  <div class="menu-grid" id="menu"></div>
-
-  <section class="cart">
-    <h2>🛒 Your Order</h2>
-    <div id="cart-items">No items added yet.</div>
-    <div class="total">Total: ₹<span id="total">0</span></div>
-    <button class="pay-btn" onclick="checkout()">
-      Order & Pay
-    </button>
-  </section>
-
-  <section class="payment">
-    <h2>Scan & Pay</h2>
-    <p>Pay with any UPI app</p>
-
-    <img id="qr" alt="Cafe UPI payment QR code">
-
-    <h3 id="upi-label">cafe@upi</h3>
-    <p>Google Pay • PhonePe • Paytm • BHIM</p>
-
-    <button class="pay-btn" onclick="payUPI()">
-      Open UPI Payment App
-    </button>
-
-    <p id="payment-note">
-      Replace the sample UPI ID with your real payment ID.
-    </p>
-  </section>
-</main>
-
-<footer>
-  <h3>THE GREEN CUP ☘</h3>
-  <p>Good food. Great coffee. Happy moments.</p>
-  <p>Thank you for visiting us!</p>
-</footer>
-
-<script>
-// CUSTOMIZE YOUR CAFE DETAILS HERE
-const CAFE_NAME = "The Green Cup";
-const UPI_ID = "yourname@upi"; // Replace with your real UPI ID
-const PAYEE_NAME = "The Green Cup";
-
-const dishes = [
-  {
-    name: "Espresso",
-    category: "Coffee",
-    price: 79,
-    description: "Strong and freshly brewed",
-    image: "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=600"
-  },
-  {
-    name: "Cappuccino",
-    category: "Coffee",
-    price: 129,
-    description: "Coffee with creamy milk foam",
-    image: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600"
-  },
-  {
-    name: "Cold Coffee",
-    category: "Drinks",
-    price: 139,
-    description: "Chilled, creamy coffee",
-    image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600"
-  },
-  {
-    name: "Chocolate Shake",
-    category: "Drinks",
-    price: 149,
-    description: "Rich chocolate goodness",
-    image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600"
-  },
-  {
-    name: "French Fries",
-    category: "Snacks",
-    price: 99,
-    description: "Crispy and golden",
-    image: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600"
-  },
-  {
-    name: "Veg Sandwich",
-    category: "Snacks",
-    price: 119,
-    description: "Fresh veggies and toasted bread",
-    image: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600"
-  },
-  {
-    name: "Cheese Pizza",
-    category: "Food",
-    price: 199,
-    description: "Cheesy, warm and delicious",
-    image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600"
-  },
-  {
-    name: "Veg Burger",
-    category: "Food",
-    price: 149,
-    description: "Crispy patty with fresh veggies",
-    image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600"
-  }
-];
-
-let cart = {};
-
-function renderMenu(category = "All") {
-  const menu = document.getElementById("menu");
-
-  const filtered = dishes.filter(d =>
-    category === "All" || d.category === category
-  );
-
-  menu.innerHTML = filtered.map(d => {
-    const index = dishes.indexOf(d);
-
-    return `
-      <article class="card">
-        <img
-          src="${d.image}"
-          alt="${d.name}"
-          loading="lazy"
-          onerror="this.src='https://placehold.co/400x250/dcebd5/23452f?text=Cafe+Dish'"
-        >
-        <div class="card-content">
-          <h3>${d.name}</h3>
-          <p class="description">${d.description}</p>
-          <div class="price-row">
-            <span class="price">₹${d.price}</span>
-            <button class="add-btn" onclick="addToCart(${index})">
-              + Add
-            </button>
-          </div>
+        <div class="hero-content">
+            <p class="tagline">GOOD THINGS BREW HERE</p>
+            <h1>A Little Cup<br>of <em>Happiness.</em></h1>
+            <p>Fresh coffee, delicious snacks, and lovely moments.</p>
+            <a href="#menu" class="btn">Explore Our Menu ↓</a>
         </div>
-      </article>
-    `;
-  }).join("");
-}
+    </header>
 
-document.querySelectorAll("#filters button").forEach(button => {
-  button.addEventListener("click", () => {
-    document.querySelectorAll("#filters button")
-      .forEach(b => b.classList.remove("active"));
+    <main id="menu" class="container">
+        <section class="intro">
+            <p class="tagline">MADE WITH CARE</p>
+            <h2>Our Menu</h2>
+            <p>Your favourites, freshly served.</p>
+        </section>
 
-    button.classList.add("active");
-    renderMenu(button.dataset.category);
-  });
-});
+        <section class="menu-section">
+            <h2>☕ Coffee & Tea</h2>
 
-function addToCart(index) {
-  cart[index] = (cart[index] || 0) + 1;
-  renderCart();
-}
+            <div class="menu-grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=700&q=80" alt="Cappuccino">
+                    <div class="details">
+                        <h3>Cappuccino</h3>
+                        <p>Espresso with creamy milk foam</p>
+                        <strong>₹120</strong>
+                    </div>
+                </div>
 
-function removeFromCart(index) {
-  cart[index]--;
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=700&q=80" alt="Cafe Latte">
+                    <div class="details">
+                        <h3>Cafe Latte</h3>
+                        <p>Smooth coffee with steamed milk</p>
+                        <strong>₹140</strong>
+                    </div>
+                </div>
 
-  if (cart[index] <= 0) delete cart[index];
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=700&q=80" alt="Masala Chai">
+                    <div class="details">
+                        <h3>Masala Chai</h3>
+                        <p>Indian tea with aromatic spices</p>
+                        <strong>₹60</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  renderCart();
-}
+        <section class="menu-section">
+            <h2>🥤 Cold Drinks</h2>
 
-function getTotal() {
-  return Object.entries(cart).reduce((sum, [index, quantity]) => {
-    return sum + dishes[index].price * quantity;
-  }, 0);
-}
+            <div class="menu-grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80" alt="Iced Coffee">
+                    <div class="details">
+                        <h3>Iced Coffee</h3>
+                        <p>Chilled coffee served over ice</p>
+                        <strong>₹150</strong>
+                    </div>
+                </div>
 
-function renderCart() {
-  const container = document.getElementById("cart-items");
-  const entries = Object.entries(cart);
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=700&q=80" alt="Lemon Iced Tea">
+                    <div class="details">
+                        <h3>Lemon Iced Tea</h3>
+                        <p>Refreshing tea with lemon</p>
+                        <strong>₹110</strong>
+                    </div>
+                </div>
 
-  if (entries.length === 0) {
-    container.innerHTML = "No items added yet.";
-  } else {
-    container.innerHTML = entries.map(([index, quantity]) => {
-      const dish = dishes[index];
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=700&q=80" alt="Fruit Smoothie">
+                    <div class="details">
+                        <h3>Fruit Smoothie</h3>
+                        <p>A creamy seasonal fruit blend</p>
+                        <strong>₹160</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      return `
-        <div class="cart-line">
-          <span>${dish.name} × ${quantity}</span>
-          <span>
-            ₹${dish.price * quantity}
-            <button onclick="removeFromCart(${index})">−</button>
-          </span>
+        <section class="menu-section">
+            <h2>🥐 Snacks & Bites</h2>
+
+            <div class="menu-grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=80" alt="Croissant">
+                    <div class="details">
+                        <h3>Butter Croissant</h3>
+                        <p>Freshly baked and buttery</p>
+                        <strong>₹90</strong>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=700&q=80" alt="Grilled Sandwich">
+                    <div class="details">
+                        <h3>Grilled Sandwich</h3>
+                        <p>Toasted bread with tasty filling</p>
+                        <strong>₹130</strong>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80" alt="Chocolate Cake">
+                    <div class="details">
+                        <h3>Chocolate Cake</h3>
+                        <p>A delicious chocolate treat</p>
+                        <strong>₹120</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="note">
+            <h3>A little note from us 🌿</h3>
+            <p>Prices are in Indian Rupees. Please ask our team about allergens and today's specials.</p>
         </div>
-      `;
-    }).join("");
-  }
+    </main>
 
-  document.getElementById("total").textContent = getTotal();
+    <footer>
+        <h2 class="logo">piccolo<span>.</span></h2>
+        <p>Small moments. Lovely coffee.</p>
+        <p class="copyright">© 2026 Piccolo Cafe | All Rights Reserved</p>
+    </footer>
 
-  updateQR();
-}
-
-function updateQR() {
-  const amount = getTotal();
-
-  const upiLink =
-    `upi://pay?pa=${encodeURIComponent(UPI_ID)}` +
-    `&pn=${encodeURIComponent(PAYEE_NAME)}` +
-    `&am=${amount}` +
-    `&cu=INR`;
-
-  document.getElementById("qr").src =
-    "https://api.qrserver.com/v1/create-qr-code/" +
-    `?size=220x220&data=${encodeURIComponent(upiLink)}`;
-
-  document.getElementById("upi-label").textContent = UPI_ID;
-}
-
-function checkout() {
-  if (getTotal() === 0) {
-    alert("Please add some dishes to your order first!");
-    return;
-  }
-
-  document.querySelector(".payment").scrollIntoView({
-    behavior: "smooth"
-  });
-
-  alert(
-    "Your order total is ₹" + getTotal() +
-    ". Scan the QR code to pay."
-  );
-}
-
-function payUPI() {
-  if (getTotal() === 0) {
-    alert("Please add some dishes to your order first!");
+</body>
+</html>
